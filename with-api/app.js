@@ -7,9 +7,6 @@ const path = require("path");
 const http = require("http");
 const { Server } = require("socket.io");
 
-const cors = require('./configs/cors');
-const errorHandler = require('./app/middlewares/errorHandler');
-
 const app = express();
 const port = process.env.PORT || process.env.LOCAL_PORT;
 
@@ -21,7 +18,6 @@ const io = new Server(server, {
 
 // Middleware
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors);
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,9 +30,6 @@ app.use((req, res, next) => {
 // Routes
 const customerRoutes = require('./routes/customerRoutes');
 app.use('/call-center', customerRoutes);
-
-// Error handler
-app.use(errorHandler);
 
 // Track sockets + availability
 io.on("connection", (socket) => {
