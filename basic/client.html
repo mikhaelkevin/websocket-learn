@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #messages {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      height: 150px;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>WebSocket Test</h1>
+
+  <div>
+    <input type="text" id="messageInput" placeholder="Type a message" />
+    <button id="sendMessage">Send Message</button>
+  </div>
+
+  <div id="messages"></div>
+
+  <script src="./script/client.js"></script>
+</body>
+</html>
